@@ -217,11 +217,7 @@ export default function App() {
         {snapshot ? (
           <>
             {/* 主要烟霾核心指标概览 */}
-            <OverviewHero
-              snapshot={snapshot}
-              activeMetric={activeMetric}
-              onChangeMetric={setActiveMetric}
-            />
+            <OverviewHero snapshot={snapshot} />
 
             {/* 地区卡片网格 */}
             <RegionalGrid

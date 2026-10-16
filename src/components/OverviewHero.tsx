@@ -11,15 +11,9 @@ import {
 
 interface OverviewHeroProps {
   snapshot: HazeDataSnapshot;
-  activeMetric: 'pm25' | 'psi';
-  onChangeMetric: (metric: 'pm25' | 'psi') => void;
 }
 
-export const OverviewHero: React.FC<OverviewHeroProps> = ({
-  snapshot,
-  activeMetric,
-  onChangeMetric,
-}) => {
+export const OverviewHero: React.FC<OverviewHeroProps> = ({ snapshot }) => {
   const currentPm25Band = PM25_BANDS[snapshot.peakPm25.band];
   const currentPsiBand = PSI_BANDS[snapshot.peakPsi.band];
 
@@ -31,40 +25,14 @@ export const OverviewHero: React.FC<OverviewHeroProps> = ({
 
   return (
     <section id="overview" className="space-y-6 mb-8">
-      {/* 顶部标题与指标切换按钮 */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
-            新加坡空气质量与烟霾状况
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-500 mt-1">
-            数据来源：新加坡国家环境局 (NEA) · 监测范围覆盖全岛五大主要区域
-          </p>
-        </div>
-
-        {/* 指标切换控制器 */}
-        <div className="flex items-center gap-1 p-1 bg-slate-200/70 rounded-xl shrink-0 self-start sm:self-auto">
-          <button
-            onClick={() => onChangeMetric('pm25')}
-            className={`px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all ${
-              activeMetric === 'pm25'
-                ? 'bg-white text-slate-900 shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            1小时 PM2.5 浓度
-          </button>
-          <button
-            onClick={() => onChangeMetric('psi')}
-            className={`px-3.5 py-1.5 text-xs sm:text-sm font-semibold rounded-lg transition-all ${
-              activeMetric === 'psi'
-                ? 'bg-white text-slate-900 shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
-            }`}
-          >
-            24小时 PSI 指数
-          </button>
-        </div>
+      {/* 顶部标题 */}
+      <div>
+        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
+          新加坡空气质量与烟霾状况
+        </h1>
+        <p className="text-xs sm:text-sm text-slate-500 mt-1">
+          数据来源：新加坡国家环境局 (NEA) · 监测范围覆盖全岛五大主要区域
+        </p>
       </div>
 
       {/* 主展示区：两大核心指数与即时建议 */}
