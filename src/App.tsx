@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useState, useCallback, useRef } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import {
   HazeDataSnapshot,
   HistoricalDataPoint,
@@ -270,6 +271,9 @@ export default function App() {
         lastSuccessFetchTime={lastSuccessFetchTime || snapshot?.fetchTimestamp}
         onScrollToTop={handleScrollToTop}
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
