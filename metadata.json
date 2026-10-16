@@ -1,0 +1,6 @@
+{
+  "name": "新加坡实时烟霾监测",
+  "description": "新加坡实时烟霾监测应用，提供新加坡国家环境局（NEA）官方发布的1小时PM2.5及24小时PSI空气质量指数、五大区域数据、健康防护建议与历史趋势分析。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
